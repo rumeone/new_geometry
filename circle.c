@@ -22,3 +22,25 @@ void print_circle(circle* c, FILE* f)
     printf("Circle((%d;%d), R=%d)\n", c->C.x, c->C.y, c->r);
 }
 
+float perimeter_circle(circle* c, FILE* f)
+{
+    if (c->r > 0) {
+        float P = 2 * M_PI * c->r;
+        printf("Circle perimeter = %.2f\n", P);
+        fprintf(f, "Circle perimeter = %.2f\n", P);
+        return P;
+    }
+    return -1;
+}
+
+float area_circle(circle* c, FILE* f)
+{
+    if (c->r > 0) {
+        float S = M_PI * c->r * c->r;
+        printf("Circle area = %.2f\n", S);
+        fprintf(f, "Circle area = %.2f\n", S);
+        return S;
+    }
+    return -1;
+}
+
