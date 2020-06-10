@@ -44,3 +44,18 @@ float area_circle(circle* c, FILE* f)
     return -1;
 }
 
+int inter_cir(circle* c1, circle* c2, FILE* f)
+{
+    if (!c1 || !c2) {
+        return -1;
+    }
+    if ((c1->r > 0) && (c2->r > 0)) {
+        double distance = sqrt(pow(c2->C.x - c1->C.x, 2) + pow(c2->C.y - c1->C.y, 2));
+        if (distance <= (c1->r + c2->r)) {
+            printf("Окружности пересекатся\n");
+            fprintf(f, "Окружности пересекаются\n");
+            return 1;
+        }
+    }
+    return -1;
+}
