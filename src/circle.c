@@ -2,16 +2,15 @@
 #include <math.h>
 #include <stdio.h>
 
-
 int enter_coordinate_circle(circle* c)
 {
     printf("Введите координаты окружности: ");
     scanf("%d %d", &c->C.x, &c->C.y);
     printf("Введите радиус окружности: ");
     scanf("%d", &c->r);
-    if( c->r < 0) {
-        printf("Неккоректный радиус\n");
-        return -1;
+    while (c->r <= 0) {
+        printf("Радиус не может быть меньше или равен 0, повторите попытку\n");
+        scanf("%d", &c->r);
     }
     return 0;
 }
@@ -57,5 +56,6 @@ int inter_cir(circle* c1, circle* c2, FILE* f)
             return 1;
         }
     }
+    printf("Окружности не пересекаются\n");
     return -1;
 }
