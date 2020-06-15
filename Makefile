@@ -5,14 +5,17 @@ all: bin build bin/geometry bin/test
 
 #src
 
-bin/geometry: build/src/main.o build/src/circle.o
-	gcc $(FLAGS) build/src/main.o build/src/circle.o -o bin/geometry -lm
+bin/geometry: build/src/main.o build/src/circle.o build/src/triangle.o
+	gcc $(FLAGS) build/src/main.o build/src/circle.o build/src/triangle.o -o bin/geometry -lm
 
 build/src/main.o: src/main.c
 	gcc $(FLAGS) -c src/main.c -o build/src/main.o
 
 build/src/circle.o: src/circle.c
 	gcc $(FLAGS) -c src/circle.c -o build/src/circle.o
+
+build/src/triangle.o: src/triangle.c
+	gcc $(FLAGS) -c src/triangle.c -o build/src/triangle.o
 
 #test
 
