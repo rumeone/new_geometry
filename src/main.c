@@ -26,6 +26,8 @@ int main()
     perimeter_triangle(&t,f);
     area_triangle(&t,f);
 
+    inter_triangle_circle(&t, &c, f);
+
     fclose(f);
     printf("\n");
 
