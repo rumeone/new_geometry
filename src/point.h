@@ -25,3 +25,4 @@ int print_triangle(triangle* t, FILE* f);
 int check_triangle(triangle* t, FILE* f);
 float perimeter_triangle(triangle* t, FILE* f);
 float area_triangle(triangle* t, FILE* f);
+int inter_triangle_circle(triangle* t, circle* c, FILE* f);
