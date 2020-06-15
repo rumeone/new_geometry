@@ -14,9 +14,12 @@ int inter_triangle_circle(triangle* t, circle* c, FILE* f)
         distance_three = sqrt(((t->T[3].x - c->C.x) * (t->T[3].x - c->C.x)) - ((t->T[3].y - c->C.y) * (t->T[3].y - c->C.y)));
         if ((distance_one < c->r) || (distance_two < c->r) || (distance_three < c->r)) {
             printf("Окружность и тругольник пересекаются\n");
+            fprintf(f, "Окружность и тругольник пересекаются\n");
             return 1;
         }
     }
     printf("Окружность и треугольник не пересекаются\n");
+    fprintf(f, "Окружность и треугольник не пересекаются\n");
     return 0;
 }
+
