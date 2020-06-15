@@ -1,15 +1,19 @@
 #include <stdio.h>
 
 typedef struct point {
-  int x;
-  int y;
+    int x;
+    int y;
 
- } point_t;
+} point_t;
 
 typedef struct circle {
-  point_t C;
-  int r;
+    point_t C;
+    int r;
 } circle;
+
+typedef struct triangle {
+    point_t T[4];
+} triangle;
 
 int enter_coordinate_circle(circle* c);
 void print_circle(circle* c, FILE* f);
