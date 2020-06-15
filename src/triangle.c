@@ -55,3 +55,26 @@ int check_triangle(triangle* t, FILE* f)
         return -1;
     }
 }
+
+float perimeter_triangle(triangle* t, FILE* f)
+{
+    float a, b, c, P;
+    a = sqrt(((t->T[2].x - t->T[1].x) * (t->T[2].x - t->T[1].x)) + ((t->T[2].y - t->T[1].y) * (t->T[2].y - t->T[1].y)));
+    b = sqrt(((t->T[3].x - t->T[1].x) * (t->T[3].x - t->T[1].x)) + ((t->T[3].y - t->T[1].y) * (t->T[3].y - t->T[1].y)));
+    c = sqrt(((t->T[3].x - t->T[2].x) * (t->T[3].x - t->T[2].x)) + ((t->T[3].y - t->T[2].y) * (t->T[3].y - t->T[2].y)));
+
+    P = a + b + c;
+    printf("Perimeter triangle: %.2f\n", P);
+    fprintf(f, "Perimeter triangle : %.2f\n", P);
+    return P;
+}
+
+float area_triangle(triangle* t, FILE* f)
+{
+    float S;
+    S = (fabs(((t->T[2].x) - (t->T[1].x)) * ((t->T[3].y) - (t->T[1].y)) - ((t->T[3].x) - (t->T[1].x)) * ((t->T[2].y) - (t->T[1].y)))) / 2;
+    printf("Area triangle: %.2f\n", S);
+    fprintf(f, "Area triangle: %.2f\n", S);
+
+    return S;
+}
