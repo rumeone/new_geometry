@@ -22,8 +22,8 @@ build/src/intersection.o: src/intersection.c
 
 #test
 
-bin/test: build/test/main.o build/test/test.o build/src/circle.o 
-	gcc $(FLAGS) build/test/main.o build/test/test.o build/src/circle.o -o bin/test -lm
+bin/test: build/test/main.o build/test/test.o build/src/circle.o  build/src/triangle.o
+	gcc $(FLAGS) build/test/main.o build/test/test.o build/src/circle.o build/src/triangle.o -o bin/test -lm
 
 build/test/main.o: test/main.c
 	gcc $(FLAGS) -c test/main.c -o build/test/main.o
