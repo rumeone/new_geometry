@@ -140,6 +140,23 @@ CTEST(triangle, perimeter_triangle) {
     // Then 
     const float expected = 4.83;
     ASSERT_DBL_NEAR_TOL(expected, result, 0.1);
-
-
 }
+
+CTEST(triangle, area_triangle) {
+    // Given
+    FILE *f=fopen("Print", "w");
+
+    triangle t;
+    t.T[1].x=1;
+    t.T[1].y=1;
+    t.T[2].x=2;
+    t.T[2].y=2;
+    t.T[3].x=3;
+    t.T[3].y=1;
+    // When
+    float result = area_triangle(&t, f);
+    // Then 
+    const float expected = 1;
+    ASSERT_DBL_NEAR_TOL(expected, result, 0.1);
+}
+
