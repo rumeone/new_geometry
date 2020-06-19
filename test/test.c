@@ -58,105 +58,162 @@ CTEST(circle, area_circle_bad)
     ASSERT_DBL_NEAR(expected, result);
 }
 
-CTEST(circle, inter) {
-	// Given
-	FILE* f = fopen("Print", "w");
-
-	circle c1;
-	circle c2;
-
-	c1.r = 1;
-	c2.r = 2;
-
-    c1.C.x = 1;
-    c1.C.y= 1;
-    c2.C.x = 2;
-    c2.C.y = 2;
-	// When
-	int result = inter_cir(&c1, &c2, f);
-	// Then 
-	const int expected = 1;
-
-	ASSERT_EQUAL(expected, result);
-}
-
-CTEST(circle, inter_bad_1s) {
-	// Given
-	FILE* f = fopen("Print", "w");
-
-	circle c1;
-	circle c2;
-
-	c1.r = -1;
-	c2.r = 2;
-
-    c1.C.x = 1;
-    c1.C.y= 1;
-    c2.C.x = 2;
-    c2.C.y = 2;
-	// When
-	int result = inter_cir(&c1, &c2, f);
-	// Then 
-	const int expected = -1;
-
-	ASSERT_EQUAL(expected, result);
-}
-
-CTEST(circle, inter_bad_2) {
-	// Given
-	FILE* f = fopen("Print", "w");
-
-	circle c1;
-	circle c2;
-
-	c1.r = 1;
-	c2.r = -2;
-
-    c1.C.x = 1;
-    c1.C.y= 1;
-    c2.C.x = 2;
-    c2.C.y = 2;
-	// When
-	int result = inter_cir(&c1, &c2, f);
-	// Then 
-	const int expected = -1;
-
-	ASSERT_EQUAL(expected, result);
-}
-
-CTEST(triangle, perimeter_triangle) {
+CTEST(circle, inter)
+{
     // Given
-    FILE *f=fopen("Print", "w");
+    FILE* f = fopen("Print", "w");
+
+    circle c1;
+    circle c2;
+
+    c1.r = 1;
+    c2.r = 2;
+
+    c1.C.x = 1;
+    c1.C.y = 1;
+    c2.C.x = 2;
+    c2.C.y = 2;
+    // When
+    int result = inter_cir(&c1, &c2, f);
+    // Then
+    const int expected = 1;
+
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(circle, inter_bad_1s)
+{
+    // Given
+    FILE* f = fopen("Print", "w");
+
+    circle c1;
+    circle c2;
+
+    c1.r = -1;
+    c2.r = 2;
+
+    c1.C.x = 1;
+    c1.C.y = 1;
+    c2.C.x = 2;
+    c2.C.y = 2;
+    // When
+    int result = inter_cir(&c1, &c2, f);
+    // Then
+    const int expected = -1;
+
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(circle, inter_bad_2)
+{
+    // Given
+    FILE* f = fopen("Print", "w");
+
+    circle c1;
+    circle c2;
+
+    c1.r = 1;
+    c2.r = -2;
+
+    c1.C.x = 1;
+    c1.C.y = 1;
+    c2.C.x = 2;
+    c2.C.y = 2;
+    // When
+    int result = inter_cir(&c1, &c2, f);
+    // Then
+    const int expected = -1;
+
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(triangle, perimeter_triangle)
+{
+    // Given
+    FILE* f = fopen("Print", "w");
 
     triangle t;
-    t.T[1].x=1;
-    t.T[1].y=1;
-    t.T[2].x=2;
-    t.T[2].y=2;
-    t.T[3].x=3;
-    t.T[3].y=1;
+    t.T[1].x = 1;
+    t.T[1].y = 1;
+    t.T[2].x = 2;
+    t.T[2].y = 2;
+    t.T[3].x = 3;
+    t.T[3].y = 1;
     // When
     float result = perimeter_triangle(&t, f);
-    // Then 
+    // Then
     const float expected = 4.83;
+
     ASSERT_DBL_NEAR_TOL(expected, result, 0.1);
 }
 
-CTEST(triangle, area_triangle) {
+CTEST(triangle, area_triangle)
+{
     // Given
-    FILE *f=fopen("Print", "w");
+    FILE* f = fopen("Print", "w");
 
     triangle t;
-    t.T[1].x=1;
-    t.T[1].y=1;
-    t.T[2].x=2;
-    t.T[2].y=2;
-    t.T[3].x=3;
-    t.T[3].y=1;
+    t.T[1].x = 1;
+    t.T[1].y = 1;
+    t.T[2].x = 2;
+    t.T[2].y = 2;
+    t.T[3].x = 3;
+    t.T[3].y = 1;
     // When
     float result = area_triangle(&t, f);
-    // Then 
+    // Then
     const float expected = 1;
     ASSERT_DBL_NEAR_TOL(expected, result, 0.1);
 }
 
+CTEST(triangle, inter_triangle_circle)
+{
+    // Given
+    FILE* f = fopen("Print", "w");
+
+    triangle t;
+    circle c;
+
+    c.r = 1;
+    c.C.x = 1;
+    c.C.y = 1;
+
+    t.T[1].x = 1;
+    t.T[1].y = 1;
+    t.T[2].x = 2;
+    t.T[2].y = 2;
+    t.T[3].x = 3;
+    t.T[3].y = 1;
+    // When
+    int result = inter_triangle_circle(&t, &c, f);
+    // Then
+    const int expected = 1;
+
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(triangle, inter_triangle_circle_bad)
+{
+    // Given
+    FILE* f = fopen("Print", "w");
+
+    triangle t;
+    circle c;
+
+    c.r = 1;
+    c.C.x = 1;
+    c.C.y = 1;
+
+    t.T[1].x = 3;
+    t.T[1].y = 3;
+    t.T[2].x = 5;
+    t.T[2].y = 5;
+    t.T[3].x = 6;
+    t.T[3].y = 4;
+    // When
+    int result = inter_triangle_circle(&t, &c, f);
+    // Then
+    const int expected = 0;
+
+    ASSERT_EQUAL(expected, result);
+}
