@@ -27,7 +27,7 @@ int main()
     inter_triangle_circle(&t, &c, f);
 
     fclose(f);
-    printf("\n");
+    printf("Для просмотра результата введите команду cat Print\n");
 
     return 0;
 }

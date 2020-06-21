@@ -26,16 +26,9 @@ int print_triangle(triangle* t, FILE* f)
             }
         }
         fprintf(f, ")");
-        for (int i = 1; i <= 3; ++i) {
-            printf("(%d,%d)", t->T[i].x, t->T[i].y);
-            if (i < 4) {
-                printf(" ");
-            }
-        }
     } else {
         printf("Error: invalid triangle\n");
     }
-    printf(")\n");
     return c;
 }
 
@@ -62,7 +55,7 @@ float perimeter_triangle(triangle* t, FILE* f)
     c = sqrt((pow(t->T[3].x - t->T[2].x, 2) + pow(t->T[3].y - t->T[2].y, 2)));
 
     P = a + b + c;
-    fprintf(f, "Perimeter triangle : %.2f\n", P);
+    fprintf(f, "\nPerimeter triangle : %.2f\n", P);
     return P;
 }
 
