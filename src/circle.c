@@ -51,11 +51,10 @@ int inter_cir(circle* c1, circle* c2, FILE* f)
     if ((c1->r > 0) && (c2->r > 0)) {
         double distance = sqrt(pow(c2->C.x - c1->C.x, 2) + pow(c2->C.y - c1->C.y, 2));
         if (distance <= (c1->r + c2->r)) {
-            printf("Окружности пересекатся\n");
             fprintf(f, "Окружности пересекаются\n");
             return 1;
         }
     }
-    printf("Окружности не пересекаются\n");
+    fprintf(f, "Окружности не пересекаются\n");
     return -1;
 }
