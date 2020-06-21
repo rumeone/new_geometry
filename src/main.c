@@ -4,12 +4,11 @@
 
 int main()
 {
-
     FILE* f = fopen("Print", "w");
     circle c;
     circle c1;
     triangle t;
-    
+
     printf("Первая окружность:\n");
     enter_coordinate_circle(&c);
     print_circle(&c, f);

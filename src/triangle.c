@@ -62,7 +62,9 @@ float perimeter_triangle(triangle* t, FILE* f)
 float area_triangle(triangle* t, FILE* f)
 {
     float S;
-    S = (fabs(((t->T[2].x) - (t->T[1].x)) * ((t->T[3].y) - (t->T[1].y)) - ((t->T[3].x) - (t->T[1].x)) * ((t->T[2].y) - (t->T[1].y)))) / 2;
+    S = (fabs(((t->T[2].x) - (t->T[1].x)) * ((t->T[3].y) - (t->T[1].y))
+              - ((t->T[3].x) - (t->T[1].x)) * ((t->T[2].y) - (t->T[1].y))))
+            / 2;
     fprintf(f, "Area triangle: %.2f\n", S);
 
     return S;
