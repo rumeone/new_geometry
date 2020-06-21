@@ -39,8 +39,7 @@ build:
 	mkdir -p build/test
 	mkdir -p build/src
 
-run: all
-	./bin/geometry
+run: test
 	./bin/test
 
 .PHONY: clean all run
