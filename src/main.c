@@ -9,11 +9,13 @@ int main()
     circle c;
     circle c1;
     triangle t;
-
+    
+    printf("Первая окружность:\n");
     enter_coordinate_circle(&c);
     print_circle(&c, f);
     perimeter_circle(&c, f);
     area_circle(&c, f);
+    printf("Вторая окружность:\n");
     enter_coordinate_circle(&c1);
     inter_cir(&c, &c1, f);
 
@@ -25,7 +27,7 @@ int main()
     inter_triangle_circle(&t, &c, f);
 
     fclose(f);
-    printf("\n");
+    printf("Для просмотра результата введите команду cat Print\n");
 
     return 0;
 }

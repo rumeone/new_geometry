@@ -5,7 +5,7 @@
 
 void enter_triangle_coordinate(triangle* t)
 {
-    printf("Введите координаты треугольника\n");
+    printf("\nВведите координаты треугольника\n");
     for (int i = 1; i <= 3; i++) {
         printf("Введите координаты вершины: %d\n", i);
         scanf("%d %d", &t->T[i].x, &t->T[i].y);
@@ -26,18 +26,9 @@ int print_triangle(triangle* t, FILE* f)
             }
         }
         fprintf(f, ")");
-
-        printf("Triangle ( ");
-        for (int i = 1; i <= 3; ++i) {
-            printf("(%d,%d)", t->T[i].x, t->T[i].y);
-            if (i < 4) {
-                printf(" ");
-            }
-        }
     } else {
         printf("Error: invalid triangle\n");
     }
-    printf(")\n");
     return c;
 }
 
@@ -64,8 +55,7 @@ float perimeter_triangle(triangle* t, FILE* f)
     c = sqrt((pow(t->T[3].x - t->T[2].x, 2) + pow(t->T[3].y - t->T[2].y, 2)));
 
     P = a + b + c;
-    printf("Perimeter triangle: %.2f\n", P);
-    fprintf(f, "Perimeter triangle : %.2f\n", P);
+    fprintf(f, "\nPerimeter triangle : %.2f\n", P);
     return P;
 }
 
@@ -73,7 +63,6 @@ float area_triangle(triangle* t, FILE* f)
 {
     float S;
     S = (fabs(((t->T[2].x) - (t->T[1].x)) * ((t->T[3].y) - (t->T[1].y)) - ((t->T[3].x) - (t->T[1].x)) * ((t->T[2].y) - (t->T[1].y)))) / 2;
-    printf("Area triangle: %.2f\n", S);
     fprintf(f, "Area triangle: %.2f\n", S);
 
     return S;
